@@ -1,0 +1,11 @@
+<div>
+    <app-board *ngFor="let index of indexes" boardIndex="{{index}}" (cellClickedOnBoard)="onBoardCellClickedHandler($event)" ></app-board>
+</div>
+
+<div (click)="checkBoards()">
+    <button (click)="checkBoards()">Play</button>
+    <p #panel1>Panel 1:</p>
+    <p #panel2>Panel 2:</p>
+    <p #panel3>Panel 3:</p>
+    <p #panel4>Panel 4:</p>
+</div>

@@ -1,0 +1,12 @@
+button {
+    width:13%;
+    height: 13%;
+    border: 3px red;
+    background-color: seagreen;
+    color: red;
+    margin: 1px;
+}
+
+.selected{
+    background-color: white;
+}

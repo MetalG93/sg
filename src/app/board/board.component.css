@@ -1,0 +1,21 @@
+button{
+    background-color: red;
+    color: white;
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
+
+.table{
+    width: 25%;
+}
+
+div.header{
+    display: inline-block;
+    width: 100%;
+}

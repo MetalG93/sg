@@ -1,0 +1,17 @@
+<div class="login">
+    <select name="users" [(ngModel)]='selectedUser'>
+        <option *ngFor="let user of users" [value]='user.userId' (click)='logActiveUser()'>{{user.userName}}</option>
+    </select>
+    <div>
+        <input id="textbox_u" name="textbox_u" type="text" placeholder="User ID" class="form-control" value='{{selectedUser ? selectedUser : ""}}' #textbox_u>
+    </div>
+    <div>
+        <input id="textbox_p" name="textbox_p" type="password" placeholder="Password" #textbox_p>
+    </div>
+    <div *ngIf="incorrectPassword">
+        <p>User ID or password is incorrect</p>
+    </div>
+    <div>
+        <button name="submit" (click)="login(textbox_u.value, textbox_p.value)">Login</button>
+    </div>
+</div>

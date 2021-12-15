@@ -1,0 +1,33 @@
+input {
+    width: 100%;
+    position: relative;
+    text-align: center;
+    margin: 3px;
+}
+
+select{
+    width: 100%;
+    position: relative;
+    text-align: center;
+    margin: 3px;
+}
+
+button{
+    width: 100%;
+    margin: 10px;
+    background-color: red;
+    color: white;
+    border-color: black;
+}
+
+div.login{
+    border: 2px black;  
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+p{
+    color: red;
+}
