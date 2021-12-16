@@ -15,7 +15,6 @@ export class HttpService {
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<User[]> {
-    console.log('Calling backend with URL: ' + this.getUsersLink)
     return this.http.get<User[]>(this.getUsersLink);
   }
 

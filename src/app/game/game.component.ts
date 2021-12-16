@@ -9,20 +9,19 @@ export class GameComponent implements OnInit {
 
   constructor() { }
 
-  boards: Map<number, boolean>[] = [];
+  boards: Map<number, Map<number, boolean>> = new Map<number, Map<number, boolean>>();
 
   ngOnInit(): void {
-    for(let i = 0; i < 4; i++){
-      this.boards.push(new Map<number, boolean>());
+    for(let i = 1; i <= 4; i++){
+      this.boards.set(i, new Map<number, boolean>());
       this.fillBoard(i);      
     }
   }
 
   fillBoard(index: number): void {
     for(let j = 1; j<=49; j++){
-      this.boards[index].set(j, false);
+      this.boards.get(index)?.set(j, false);
     }
-    console.log(this.boards);
   }
 
   checkBoards(): void{
@@ -30,13 +29,13 @@ export class GameComponent implements OnInit {
   }
 
   onBoardDeleteHandler($event: number): void {
-    this.boards[$event].clear();
+    this.boards.get($event)?.clear();
     this.fillBoard($event);
+    console.log(this.boards.get($event));
   }
 
   onBoardCellClickedHandler($event: number[]){
-    this.boards[$event[0]].set($event[1], !this.boards[$event[0]].get($event[1]))
-    console.log(this.boards[$event[0]].get($event[1]));
+    this.boards.get($event[0])?.set($event[1], !this.boards.get($event[0])?.get($event[1]));
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { HttpService } from '../http.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { HttpService } from '../http.service';
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.css']
 })
-export class BoardComponent implements OnInit {
+export class BoardComponent implements OnChanges {
 
   @Input()
   boardIndex: number = -1;
@@ -24,15 +24,14 @@ export class BoardComponent implements OnInit {
     private http:HttpService
   ) { }
 
-  ngOnInit(): void {
-    console.log(this.boardIndex + ": " + this.numbers)
+  ngOnChanges(changes: SimpleChanges): void {
   }
 
   getRandom(): void {
     this.deleteNumbers();
     this.http.getRandoms().subscribe(numbers => {
       numbers.forEach(element => {
-        this.cellClickedOnBoard.emit([this.boardIndex ]);
+        this.cellClickedOnBoard.emit([this.boardIndex, element]);
       });      
     });
   }

@@ -1,11 +1,11 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-cell',
   templateUrl: './cell.component.html',
   styleUrls: ['./cell.component.css']
 })
-export class CellComponent {
+export class CellComponent implements OnChanges {
 
   @Input()
   cellNumber: number = -1;
@@ -15,6 +15,10 @@ export class CellComponent {
 
   @Output()
   clickEvent = new EventEmitter<number>();
+
+  ngOnChanges(changes: SimpleChanges): void {
+      this.selected=changes['selected'].currentValue;
+  }
 
   changeSelected(): void {
     this.clickEvent.emit(this.cellNumber);
