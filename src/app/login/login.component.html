@@ -1,6 +1,6 @@
 <div class="login">
     <select name="users" [(ngModel)]='selectedUser'>
-        <option *ngFor="let user of users" [value]='user.userId' (click)='logActiveUser()'>{{user.userName}}</option>
+        <option *ngFor="let user of users" [value]='user.userId'>{{user.userName}}</option>
     </select>
     <div>
         <input id="textbox_u" name="textbox_u" type="text" placeholder="User ID" class="form-control" value='{{selectedUser ? selectedUser : ""}}' #textbox_u>

@@ -1,11 +1,12 @@
-<div>
-    <app-board *ngFor="let board of boards | keyvalue" [numbers]=board.value [boardIndex]=board.key (deleteBoard)="onBoardDeleteHandler($event)" (cellClickedOnBoard)="onBoardCellClickedHandler($event)" ></app-board>
+<div *ngFor="let board of boards | keyvalue" class="board">
+    <app-board [numbers]=board.value [boardIndex]=board.key (deleteBoard)="onBoardDeleteHandler($event)" (cellClickedOnBoard)="onBoardCellClickedHandler($event)" ></app-board>
 </div>
 
-<div (click)="checkBoards()">
+<div class="info">
     <button (click)="checkBoards()">Play</button>
-    <p #panel1>Panel 1:</p>
-    <p #panel2>Panel 2:</p>
-    <p #panel3>Panel 3:</p>
-    <p #panel4>Panel 4:</p>
+</div>
+<div class="info">
+    <div *ngFor="let boardText of boardTexts">
+        <p *ngIf="!boardText.includes('Empty')">{{boardText}}</p>
+    </div>
 </div>

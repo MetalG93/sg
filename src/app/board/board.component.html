@@ -1,7 +1,12 @@
 <div class="header">
-    <button id="randButton" class="left" (click)="getRandom()">RND</button>
-    <button id="delButton" class="right" (click)="deleteNumbers()">DEL</button>    
+    <button id="randButton" class="left" (click)="getRandom()">
+        <label></label>
+        <label>RND</label>
+    </button>
+    <button id="delButton" class="right" (click)="deleteNumbers()">
+        <label>DEL</label>
+    </button>    
 </div>
-<div>
+<div class="cells">
     <app-cell *ngFor="let n of numbers | keyvalue" (clickEvent)="cellClickEventHandler($event)" [cellNumber]=n.key [selected]=n.value ></app-cell>
 </div>

@@ -1,12 +1,13 @@
 button {
     width:13%;
     height: 13%;
-    border: 3px red;
-    background-color: seagreen;
+    border: 3px red solid;
+    text-align: center;
+    background-color: transparent;
     color: red;
-    margin: 1px;
+    margin: 2px;
 }
 
 .selected{
-    background-color: white;
+    background-color: rgb(68, 223, 135);
 }

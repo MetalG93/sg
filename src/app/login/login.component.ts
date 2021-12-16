@@ -37,10 +37,4 @@ export class LoginComponent implements OnInit {
       }
     });
   }
-
-  logActiveUser(): void {
-    console.log(this.selectedUser);
-    
-  }
-
 }
