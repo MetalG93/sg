@@ -19,11 +19,11 @@ export class HttpService {
     return this.http.get<User[]>(this.getUsersLink);
   }
 
-  checkPassword(userId: String, password: String): Observable<Boolean> {
-    return this.http.get<Boolean>(this.checkPasswordLink+'?userId='+userId+'&password='+password);
+  checkPassword(userId: String, password: String): Observable<boolean> {
+    return this.http.get<boolean>(this.checkPasswordLink+'?userId='+userId+'&password='+password);
   }
 
-  getRandoms(): Observable<Number[]> {
-    return this.http.get<Number[]>(this.getRandomLink);
+  getRandoms(): Observable<number[]> {
+    return this.http.get<number[]>(this.getRandomLink);
   }
 }

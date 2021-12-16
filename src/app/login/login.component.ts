@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   users?: User[];
   selectedUser?: String;
-  result?: Boolean;
+  result?: boolean;
   incorrectPassword = false;
 
   constructor(

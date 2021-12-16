@@ -9,37 +9,40 @@ import { HttpService } from '../http.service';
 export class BoardComponent implements OnInit {
 
   @Input()
-  boardIndex: string = "-1";
+  boardIndex: number = -1;
 
-  numbers: Number[] = [];
+  @Input()
+  numbers: Map<number, boolean> = new Map<number, boolean>();
 
   @Output()
-  cellClickedOnBoard = new EventEmitter<Number[]>()
+  cellClickedOnBoard = new EventEmitter<number[]>()
+
+  @Output()
+  deleteBoard = new EventEmitter<number>();
 
   constructor(
     private http:HttpService
   ) { }
 
   ngOnInit(): void {
-    for (let i = 1; i <= 49; i++) {
-      this.numbers?.push(i);
-    }
+    console.log(this.boardIndex + ": " + this.numbers)
   }
 
   getRandom(): void {
+    this.deleteNumbers();
     this.http.getRandoms().subscribe(numbers => {
       numbers.forEach(element => {
-        this.cellClickedOnBoard.emit([Number.parseInt(this.boardIndex), ]);
+        this.cellClickedOnBoard.emit([this.boardIndex ]);
       });      
     });
   }
 
   deleteNumbers(): void {
-    this.numbers = [];
+    this.deleteBoard.emit(this.boardIndex);
   }
 
   cellClickEventHandler($event: number): void {
-    this.cellClickedOnBoard.emit([Number.parseInt(this.boardIndex), $event]);
+    this.cellClickedOnBoard.emit([this.boardIndex, $event]);
   }
 
 }

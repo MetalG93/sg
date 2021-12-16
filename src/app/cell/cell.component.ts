@@ -8,7 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class CellComponent {
 
   @Input()
-  number: string = "-1";
+  cellNumber: number = -1;
  
   @Input()
   selected = false;
@@ -17,6 +17,6 @@ export class CellComponent {
   clickEvent = new EventEmitter<number>();
 
   changeSelected(): void {
-    this.clickEvent.emit(Number.parseInt(this.number));
+    this.clickEvent.emit(this.cellNumber);
   }
 }

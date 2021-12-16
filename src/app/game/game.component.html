@@ -1,5 +1,5 @@
 <div>
-    <app-board *ngFor="let index of indexes" boardIndex="{{index}}" (cellClickedOnBoard)="onBoardCellClickedHandler($event)" ></app-board>
+    <app-board *ngFor="let board of boards" [numbers]=board [boardIndex]=1 (cellClickedOnBoard)="onBoardCellClickedHandler($event)" ></app-board>
 </div>
 
 <div (click)="checkBoards()">

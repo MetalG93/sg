@@ -3,5 +3,5 @@
     <button id="delButton" class="right" (click)="deleteNumbers()">DEL</button>    
 </div>
 <div>
-    <app-cell *ngFor="let n of numbers" (clickEvent)="cellClickEventHandler($event)" number="{{n}}"></app-cell>
+    <app-cell *ngFor="let n of numbers | keyvalue" (clickEvent)="cellClickEventHandler($event)" [cellNumber]=n.key ></app-cell>
 </div>
