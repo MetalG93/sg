@@ -7,7 +7,7 @@ import { UserService } from './user-service.service';
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch:'full'},
   {path: 'login', component: LoginComponent},
-  {path:'game', component: GameComponent}
+  {path:'game', component: GameComponent, canActivate:[UserService]}
 ]
 
 @NgModule({

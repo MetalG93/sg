@@ -3,10 +3,12 @@
 </div>
 
 <div class="info">
-    <button (click)="checkBoards()">Play</button>
+    <div>
+        <button (click)="checkBoards()">Play</button>
+    </div>
 </div>
 <div class="info">
-    <div *ngFor="let boardText of boardTexts">
+    <div *ngFor="let boardText of boardTexts" class="center">
         <p *ngIf="!boardText.includes('Empty')">{{boardText}}</p>
     </div>
 </div>

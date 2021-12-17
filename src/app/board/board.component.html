@@ -1,12 +1,16 @@
 <div class="header">
     <button id="randButton" class="left" (click)="getRandom()">
-        <label></label>
+        <mat-icon aria-hidden="false">shuffle</mat-icon>
         <label>RND</label>
     </button>
     <button id="delButton" class="right" (click)="deleteNumbers()">
+        <mat-icon aria-hidden="false">delete</mat-icon>
         <label>DEL</label>
     </button>    
 </div>
-<div class="cells">
-    <app-cell *ngFor="let n of numbers | keyvalue" (clickEvent)="cellClickEventHandler($event)" [cellNumber]=n.key [selected]=n.value ></app-cell>
+<div>
+    <div class="cells">
+        <app-cell *ngFor="let n of numbers | keyvalue" (clickEvent)="cellClickEventHandler($event)" [cellNumber]=n.key [selected]=n.value ></app-cell>
+    </div>
+    <div id="background">{{boardIndex}}</div>
 </div>
