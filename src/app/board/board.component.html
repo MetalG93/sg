@@ -10,7 +10,7 @@
 </div>
 <div>
     <div class="cells">
+        <div id="background">{{boardIndex}}</div>
         <app-cell *ngFor="let n of numbers | keyvalue" (clickEvent)="cellClickEventHandler($event)" [cellNumber]=n.key [selected]=n.value ></app-cell>
     </div>
-    <div id="background">{{boardIndex}}</div>
 </div>

@@ -33,10 +33,11 @@ div.cells{
 }
 
 #background {
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    color: #999999;
+    font-size: 300px;
+    padding: auto;
     z-index: -1;
-    overflow: hidden;
+    position: absolute;
+    top: 0;
+    font-size: 400px;
  }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { User } from 'src/models/user';
+import { LoginUser } from 'src/models/loginUser';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -18,8 +19,12 @@ export class HttpService {
     return this.http.get<User[]>(this.getUsersLink);
   }
 
-  checkPassword(userId: String, password: String): Observable<boolean> {
-    return this.http.get<boolean>(this.checkPasswordLink+'?userId='+userId+'&password='+password);
+  checkPassword(userId: string, password: string): Observable<boolean> {
+    let user: LoginUser = {
+      userId:  userId,
+      password: password
+    }
+    return this.http.post<boolean>(this.checkPasswordLink, user);
   }
 
   getRandoms(): Observable<number[]> {
