@@ -6,6 +6,7 @@ button {
     background-color: transparent;
     color: red;
     margin: 2px;
+    font-size: 25px;
 }
 
 .selected{
